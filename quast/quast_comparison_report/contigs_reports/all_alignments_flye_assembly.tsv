@@ -1,0 +1,574 @@
+S1	E1	S2	E2	Reference	Contig	IDY	Ambiguous	Best_group
+131884	147718	1	15701	U00096.3	contig_1	96.28		True
+local misassembly
+156797	156893	24471	24567	U00096.3	contig_1	96.91		True
+local misassembly
+157311	168490	24964	36041	U00096.3	contig_1	96.12		True
+local misassembly
+168885	184236	36451	51644	U00096.3	contig_1	96.33		True
+local misassembly
+185088	231966	51781	98485	U00096.3	contig_1	97.99		True
+local misassembly
+231961	237989	98700	104727	U00096.3	contig_1	97.03		True
+relocation, inconsistency = 3359126
+3624259	3625320	131871	132931	U00096.3	contig_1	96.52		True
+relocation, inconsistency = -3203
+3624234	3625524	135048	136338	U00096.3	contig_1	96.82		True
+relocation, inconsistency = -3387569
+239360	245945	137743	144328	U00096.3	contig_1	97.56		True
+relocation, inconsistency = -37001
+250059	253333	185443	188717	U00096.3	contig_1	96.64		True
+local misassembly
+253677	254190	189961	190474	U00096.3	contig_1	95.72		True
+local misassembly
+254256	257899	191361	195004	U00096.3	contig_1	98.38		True
+local misassembly
+258676	262956	195005	199285	U00096.3	contig_1	97.59		True
+relocation, inconsistency = 2209271
+2473585	2476215	203273	200643	U00096.3	contig_1	96.66		True
+relocation, inconsistency = 1266738
+1203267	1204402	205717	206846	U00096.3	contig_1	96.66		True
+relocation, inconsistency = 1267722
+2472125	2473586	208308	206847	U00096.3	contig_1	97.67		True
+relocation, inconsistency = 1257205
+1204401	1206138	217090	218827	U00096.3	contig_1	97.07		True
+relocation, inconsistency = -12663
+1206135	1207805	231487	233157	U00096.3	contig_1	98.03		True
+relocation, inconsistency = 626377
+574587	575791	238328	237124	U00096.3	contig_1	99.67		True
+relocation, inconsistency = 274859
+297209	297611	240445	240848	U00096.3	contig_1	96.04		True
+relocation, inconsistency = -4059
+297715	302375	245011	249671	U00096.3	contig_1	98.39		True
+relocation, inconsistency = -1261
+302373	313807	250930	262355	U00096.3	contig_1	97.35		True
+relocation, inconsistency = -6330
+313807	315232	268685	270111	U00096.3	contig_1	96.22		True
+relocation, inconsistency = -2452
+316532	317400	273863	274730	U00096.3	contig_1	96.89		True
+local misassembly
+317439	339739	275456	297759	U00096.3	contig_1	96.87		True
+local misassembly
+340128	342568	297822	300263	U00096.3	contig_1	95.5		True
+relocation, inconsistency = -5101
+342726	354769	305522	317661	U00096.3	contig_1	96.6		True
+local misassembly
+354637	374962	318093	338207	U00096.3	contig_1	96.6		True
+local misassembly
+375365	381253	338208	343994	U00096.3	contig_1	95.96		True
+relocation, inconsistency = 1336
+382590	388646	343995	350044	U00096.3	contig_1	95.51		True
+relocation, inconsistency = 1326
+392967	424332	353039	384473	U00096.3	contig_1	97.0		True
+relocation, inconsistency = -1674
+424343	437100	386158	398902	U00096.3	contig_1	96.07		True
+relocation, inconsistency = -1922
+437165	508166	400889	471495	U00096.3	contig_1	97.7		True
+local misassembly
+508837	513896	471536	476596	U00096.3	contig_1	97.21		True
+relocation, inconsistency = -29166
+514429	522822	506295	514688	U00096.3	contig_1	98.2		True
+relocation, inconsistency = 6697
+530137	539162	515306	524332	U00096.3	contig_1	97.29		True
+relocation, inconsistency = 254987
+273955	275149	525527	524333	U00096.3	contig_1	99.67		True
+relocation, inconsistency = 264009
+539159	566073	525528	552283	U00096.3	contig_1	97.11		True
+relocation, inconsistency = -1357
+566072	566377	553639	553944	U00096.3	contig_1	97.71		True
+relocation, inconsistency = -6771
+566376	566769	560714	561107	U00096.3	contig_1	95.69		True
+relocation, inconsistency = 1261
+568034	568204	561111	561281	U00096.3	contig_1	96.49		True
+local misassembly
+572328	574570	565298	567540	U00096.3	contig_1	98.35		True
+relocation, inconsistency = 1214
+576302	578351	568058	570108	U00096.3	contig_1	95.19		True
+relocation, inconsistency = 1710134
+2288917	2290113	570540	571736	U00096.3	contig_1	99.67		True
+relocation, inconsistency = -1709613
+580501	581655	571737	572891	U00096.3	contig_1	98.61		True
+relocation, inconsistency = -20369
+583025	593320	594630	604925	U00096.3	contig_1	98.59		True
+relocation, inconsistency = 3028405
+3624233	3625525	608725	607433	U00096.3	contig_1	96.98		True
+relocation, inconsistency = -2151
+3624259	3625521	610850	609588	U00096.3	contig_1	96.75		True
+relocation, inconsistency = 3011403
+593347	608010	615696	630222	U00096.3	contig_1	96.49		True
+local misassembly
+607621	607998	630336	630712	U00096.3	contig_1	98.46		True
+relocation, inconsistency = 1349
+609348	636600	630713	657749	U00096.3	contig_1	95.77		True
+local misassembly
+637290	641869	658439	662943	U00096.3	contig_1	95.45		True
+relocation, inconsistency = 1334
+643500	687851	663240	707595	U00096.3	contig_1	97.95		True
+relocation, inconsistency = 1199
+689051	715907	707596	734749	U00096.3	contig_1	95.52		True
+relocation, inconsistency = 5038
+721058	729394	734862	743198	U00096.3	contig_1	97.25		True
+relocation, inconsistency = 8012
+753170	765148	758962	770989	U00096.3	contig_1	98.11		True
+relocation, inconsistency = -8037
+771199	815525	785077	829284	U00096.3	contig_1	96.93		True
+indel: indel (> 5bp)
+815752	820899	829466	834613	U00096.3	contig_1	97.36		True
+local misassembly
+821226	841238	834616	854632	U00096.3	contig_1	97.46		True
+relocation, inconsistency = 3662186
+4503425	4503515	854723	854633	U00096.3	contig_1	98.9		True
+local misassembly
+4502091	4503433	856768	855426	U00096.3	contig_1	100.0		True
+relocation, inconsistency = 3644539
+841226	857551	856769	873093	U00096.3	contig_1	98.19		True
+relocation, inconsistency = -4986
+857809	876662	878337	897190	U00096.3	contig_1	97.93		True
+local misassembly
+876705	899635	898187	921107	U00096.3	contig_1	98.04		True
+relocation, inconsistency = -3308
+899843	904419	924623	929134	U00096.3	contig_1	95.41		True
+relocation, inconsistency = -2502
+904538	925781	931755	952986	U00096.3	contig_1	97.78		True
+local misassembly
+925838	948755	953519	976556	U00096.3	contig_1	97.75		True
+relocation, inconsistency = 1471
+950291	993236	976621	1019395	U00096.3	contig_1	97.64		True
+relocation, inconsistency = -1599
+993317	997574	1021075	1025333	U00096.3	contig_1	95.87		True
+relocation, inconsistency = 7019
+1004693	1041906	1025433	1062645	U00096.3	contig_1	98.27		True
+relocation, inconsistency = 9048
+1050972	1080807	1062663	1092262	U00096.3	contig_1	96.79		True
+relocation, inconsistency = -2139
+1081228	1086099	1094822	1099699	U00096.3	contig_1	97.11		True
+relocation, inconsistency = 10143
+1097480	1141065	1100937	1144488	U00096.3	contig_1	97.91		True
+local misassembly
+1141129	1153230	1145369	1157469	U00096.3	contig_1	98.75		True
+local misassembly
+1153234	1183642	1158185	1188608	U00096.3	contig_1	97.75		True
+relocation, inconsistency = -648593
+581659	583053	1235218	1236614	U00096.3	contig_1	97.92		True
+relocation, inconsistency = 600238
+1183629	1196374	1236952	1249697	U00096.3	contig_1	98.14		True
+relocation, inconsistency = -633136
+566072	566377	1252531	1252836	U00096.3	contig_1	97.39		True
+relocation, inconsistency = -3020
+573296	574158	1262775	1263637	U00096.3	contig_1	97.91		True
+local misassembly
+577554	578859	1267019	1268324	U00096.3	contig_1	95.25		True
+local misassembly
+580243	581655	1268710	1270122	U00096.3	contig_1	98.44		True
+relocation, inconsistency = 280059
+273955	275149	1296351	1295157	U00096.3	contig_1	99.67		True
+relocation, inconsistency = 935171
+1211419	1240187	1297450	1326231	U00096.3	contig_1	97.69		True
+relocation, inconsistency = -1868
+1240276	1245055	1328188	1332966	U00096.3	contig_1	97.41		True
+relocation, inconsistency = -6108
+1245737	1270085	1339756	1364178	U00096.3	contig_1	97.77		True
+local misassembly
+1270620	1292420	1364179	1385507	U00096.3	contig_1	95.94		True
+local misassembly
+1292418	1294416	1386218	1388216	U00096.3	contig_1	97.85		True
+relocation, inconsistency = 3207672
+4502090	4503480	1388218	1389608	U00096.3	contig_1	100.0		True
+relocation, inconsistency = -3208110
+1295371	1299494	1389609	1393733	U00096.3	contig_1	98.79		True
+relocation, inconsistency = 1199
+1300694	1314567	1393734	1407608	U00096.3	contig_1	98.62		True
+relocation, inconsistency = 331240
+1649070	1650844	1412645	1410871	U00096.3	contig_1	96.57		True
+relocation, inconsistency = -2635
+1645031	1645284	1419319	1419066	U00096.3	contig_1	98.82		True
+relocation, inconsistency = 1027491
+581659	583053	1453806	1455202	U00096.3	contig_1	98.21		True
+relocation, inconsistency = 729962
+1314533	1370003	1456720	1512089	U00096.3	contig_1	97.25		True
+relocation, inconsistency = 13995
+1384104	1390724	1512195	1518815	U00096.3	contig_1	97.19		True
+local misassembly
+1390724	1396039	1519480	1524795	U00096.3	contig_1	98.42		True
+relocation, inconsistency = 1199
+1397239	1411924	1524796	1539482	U00096.3	contig_1	98.32		True
+relocation, inconsistency = 23060
+1434985	1446028	1539483	1550520	U00096.3	contig_1	97.77		True
+relocation, inconsistency = 21565
+1472913	1487020	1555840	1569946	U00096.3	contig_1	96.21		True
+relocation, inconsistency = -1014
+1487165	1503160	1571105	1587093	U00096.3	contig_1	97.88		True
+relocation, inconsistency = 1748
+1504909	1517003	1587094	1599188	U00096.3	contig_1	97.26		True
+relocation, inconsistency = -1337
+1517023	1526853	1600545	1610375	U00096.3	contig_1	97.24		True
+relocation, inconsistency = -794286
+737509	737965	1615317	1615773	U00096.3	contig_1	96.94		True
+relocation, inconsistency = 791840
+1534942	1545438	1620910	1631411	U00096.3	contig_1	96.26		True
+local misassembly
+1545434	1545753	1632059	1632378	U00096.3	contig_1	97.19		True
+relocation, inconsistency = -1547
+1545751	1590079	1633923	1678402	U00096.3	contig_1	96.54		True
+relocation, inconsistency = -11079
+1590750	1611892	1690152	1711262	U00096.3	contig_1	97.34		True
+local misassembly
+1611893	1624712	1711761	1724581	U00096.3	contig_1	97.78		True
+local misassembly
+1625212	1635025	1724606	1734421	U00096.3	contig_1	98.11		True
+relocation, inconsistency = 192950
+1431767	1432086	1734916	1734597	U00096.3	contig_1	97.5		True
+local misassembly
+1428795	1430472	1737450	1735773	U00096.3	contig_1	96.96		True
+relocation, inconsistency = 186710
+1637329	1645288	1757597	1765558	U00096.3	contig_1	99.52		True
+relocation, inconsistency = -2228
+1647357	1647742	1769855	1770240	U00096.3	contig_1	98.19		True
+local misassembly
+1648437	1648762	1770952	1771277	U00096.3	contig_1	99.69		True
+local misassembly
+1649234	1649634	1771867	1772267	U00096.3	contig_1	98.75		True
+relocation, inconsistency = -1375680
+273955	275149	1772268	1773462	U00096.3	contig_1	99.67		True
+relocation, inconsistency = 1374481
+1649631	1650844	1773463	1774677	U00096.3	contig_1	99.67		True
+relocation, inconsistency = -1480
+1651549	1686724	1776862	1812036	U00096.3	contig_1	98.3		True
+relocation, inconsistency = 2815364
+4502090	4503515	1813462	1812037	U00096.3	contig_1	100.0		True
+relocation, inconsistency = 2685968
+1686712	1816121	1813463	1942543	U00096.3	contig_1	97.91		True
+local misassembly
+1816384	1843693	1942595	1969904	U00096.3	contig_1	97.45		True
+relocation, inconsistency = 1214
+1845168	1883151	1970165	2008151	U00096.3	contig_1	98.12		True
+local misassembly
+1883151	1928924	2008376	2054147	U00096.3	contig_1	98.24		True
+relocation, inconsistency = -1763
+1928925	1961798	2055911	2088532	U00096.3	contig_1	97.09		True
+local misassembly
+1962584	1978494	2088586	2104497	U00096.3	contig_1	98.03		True
+local misassembly
+1979271	2001894	2104498	2127122	U00096.3	contig_1	98.33		True
+local misassembly
+2005327	2010247	2130382	2135302	U00096.3	contig_1	97.42		True
+relocation, inconsistency = 501388
+1503278	1503938	2135963	2135303	U00096.3	contig_1	95.03		True
+relocation, inconsistency = 506244
+2012563	2034143	2138344	2159936	U00096.3	contig_1	98.36		True
+local misassembly
+2035229	2044625	2160945	2170332	U00096.3	contig_1	98.56		True
+relocation, inconsistency = -27161
+2049238	2049712	2202106	2202579	U00096.3	contig_1	95.37		True
+local misassembly
+2052131	2066158	2204252	2218280	U00096.3	contig_1	97.57		True
+relocation, inconsistency = 1199
+2067358	2068222	2218281	2219145	U00096.3	contig_1	99.42		True
+relocation, inconsistency = 2430583
+4498806	4499510	2219850	2219146	U00096.3	contig_1	99.72		True
+relocation, inconsistency = 2416450
+2070659	2071213	2230993	2231547	U00096.3	contig_1	97.84		True
+local misassembly
+2071473	2076299	2231852	2236676	U00096.3	contig_1	96.58		True
+relocation, inconsistency = -3370
+2076302	2101269	2240049	2265018	U00096.3	contig_1	97.79		True
+relocation, inconsistency = 1481788
+3583427	3584196	2266157	2265388	U00096.3	contig_1	99.87		True
+relocation, inconsistency = 1434120
+2114488	2139486	2275978	2301270	U00096.3	contig_1	96.0		True
+local misassembly
+2139760	2143214	2302016	2305470	U00096.3	contig_1	98.44		True
+relocation, inconsistency = -715616
+1427599	1428794	2305471	2306666	U00096.3	contig_1	99.58		True
+relocation, inconsistency = 714416
+2143211	2150934	2306667	2314387	U00096.3	contig_1	96.38		True
+local misassembly
+2151727	2167200	2314445	2329917	U00096.3	contig_1	98.57		True
+local misassembly
+2167830	2170167	2329918	2332255	U00096.3	contig_1	99.87		True
+relocation, inconsistency = 1261
+2171429	2196640	2332256	2357388	U00096.3	contig_1	97.0		True
+relocation, inconsistency = 2303485
+4502088	4503515	2359351	2360778	U00096.3	contig_1	100.0		True
+relocation, inconsistency = -2309564
+2204307	2288918	2371134	2455605	U00096.3	contig_1	97.31		True
+relocation, inconsistency = 1199
+2290118	2304425	2455606	2469737	U00096.3	contig_1	96.93		True
+local misassembly
+2304991	2349658	2469738	2514298	U00096.3	contig_1	97.1		True
+relocation, inconsistency = -3594
+2349902	2360090	2518136	2528395	U00096.3	contig_1	95.87		True
+relocation, inconsistency = 844993
+1503156	1504908	2530148	2528396	U00096.3	contig_1	97.95		True
+relocation, inconsistency = 857535
+2362444	2384034	2530149	2551739	U00096.3	contig_1	97.36		True
+relocation, inconsistency = 1546
+2385904	2387438	2552063	2553597	U00096.3	contig_1	96.68		True
+relocation, inconsistency = 2543
+2390000	2449147	2553616	2612781	U00096.3	contig_1	97.85		True
+local misassembly
+2456334	2466383	2620020	2630256	U00096.3	contig_1	95.25		True
+relocation, inconsistency = 7014
+2478973	2514276	2635832	2671133	U00096.3	contig_1	97.4		True
+relocation, inconsistency = 1349
+2515626	2521359	2671134	2676865	U00096.3	contig_1	97.83		True
+relocation, inconsistency = 4150
+2525929	2537704	2677285	2689071	U00096.3	contig_1	98.46		True
+local misassembly
+2538671	2543650	2689079	2694057	U00096.3	contig_1	95.96		True
+indel: indel (> 5bp)
+2543783	2549427	2694058	2699697	U00096.3	contig_1	96.21		True
+indel: indel (> 5bp)
+2549608	2558690	2699698	2708780	U00096.3	contig_1	96.88		True
+relocation, inconsistency = 6790
+2565481	2630884	2708781	2774477	U00096.3	contig_1	97.23		True
+local misassembly
+2630904	2630972	2775208	2775276	U00096.3	contig_1	100.0		True
+relocation, inconsistency = -38904
+2630956	2635296	2814164	2818504	U00096.3	contig_1	96.48		True
+relocation, inconsistency = -11644
+2635892	2714366	2830744	2909064	U00096.3	contig_1	97.23		True
+relocation, inconsistency = -1436
+2714363	2755957	2910497	2952036	U00096.3	contig_1	97.66		True
+relocation, inconsistency = 2400590
+273955	275149	2991854	2990660	U00096.3	contig_1	99.67		True
+relocation, inconsistency = 2513641
+2788791	2794015	2991855	2997079	U00096.3	contig_1	95.89		True
+local misassembly
+2794179	2800530	2997316	3003666	U00096.3	contig_1	97.58		True
+relocation, inconsistency = -1871
+2800618	2808124	3005625	3013133	U00096.3	contig_1	97.4		True
+local misassembly
+2808224	2856417	3013494	3061766	U00096.3	contig_1	97.36		True
+local misassembly
+2856496	2859656	3062311	3065471	U00096.3	contig_1	96.39		True
+relocation, inconsistency = 2272
+2866513	2877910	3070056	3081330	U00096.3	contig_1	97.11		True
+local misassembly
+2887311	2904041	3091311	3108039	U00096.3	contig_1	96.98		True
+local misassembly
+2904379	2905503	3108560	3109684	U00096.3	contig_1	97.87		True
+relocation, inconsistency = -2591
+2906530	2910719	3113302	3117490	U00096.3	contig_1	98.43		True
+local misassembly
+2911417	2990492	3117552	3196740	U00096.3	contig_1	97.96		True
+relocation, inconsistency = -15857
+2997692	3045094	3219797	3267154	U00096.3	contig_1	97.61		True
+local misassembly
+3046122	3059573	3267281	3280732	U00096.3	contig_1	97.76		True
+relocation, inconsistency = -2989
+3059700	3068802	3283848	3292951	U00096.3	contig_1	98.53		True
+relocation, inconsistency = -1077
+3068962	3073892	3294188	3299117	U00096.3	contig_1	98.93		True
+relocation, inconsistency = -3135
+3074226	3079408	3302586	3307768	U00096.3	contig_1	96.7		True
+relocation, inconsistency = -1365
+3079643	3082669	3309368	3312394	U00096.3	contig_1	97.62		True
+relocation, inconsistency = -1592
+3082876	3083874	3314193	3315191	U00096.3	contig_1	96.8		True
+local misassembly
+3083939	3098357	3316130	3330492	U00096.3	contig_1	96.95		True
+relocation, inconsistency = -3049
+3098558	3110441	3333742	3345619	U00096.3	contig_1	97.99		True
+relocation, inconsistency = 2688961
+381258	382590	3373957	3372626	U00096.3	contig_1	96.85		True
+relocation, inconsistency = 1648383
+2072468	2076299	3415452	3419283	U00096.3	contig_1	96.25		True
+relocation, inconsistency = -3533
+2076302	2077040	3422819	3423557	U00096.3	contig_1	96.89		True
+relocation, inconsistency = 997107
+3112091	3130145	3461501	3479488	U00096.3	contig_1	95.53		True
+relocation, inconsistency = -7212
+3131344	3150548	3487899	3507215	U00096.3	contig_1	97.44		True
+local misassembly
+3150547	3181577	3507925	3538964	U00096.3	contig_1	99.63		True
+relocation, inconsistency = -3661
+3181623	3185039	3542671	3546087	U00096.3	contig_1	98.1		True
+relocation, inconsistency = 6565
+3191767	3231242	3546250	3585578	U00096.3	contig_1	96.88		True
+local misassembly
+3231545	3239538	3585626	3593611	U00096.3	contig_1	96.27		True
+local misassembly
+3239759	3269659	3594049	3623948	U00096.3	contig_1	97.65		True
+local misassembly
+3270177	3281076	3623960	3634859	U00096.3	contig_1	98.3		True
+relocation, inconsistency = -2305
+3281071	3286994	3637159	3643081	U00096.3	contig_1	96.96		True
+relocation, inconsistency = 5385
+3292479	3296983	3643181	3647685	U00096.3	contig_1	97.76		True
+indel: indel (> 5bp)
+3297104	3304451	3647814	3655161	U00096.3	contig_1	97.21		True
+relocation, inconsistency = -1328
+3304572	3360618	3656610	3712515	U00096.3	contig_1	98.14		True
+relocation, inconsistency = 7027
+3367778	3392122	3712648	3736988	U00096.3	contig_1	98.11		True
+local misassembly
+3392397	3404637	3736989	3749142	U00096.3	contig_1	97.77		True
+local misassembly
+3404739	3453454	3749999	3798556	U00096.3	contig_1	98.26		True
+relocation, inconsistency = 15106
+3470093	3499663	3800089	3829664	U00096.3	contig_1	98.26		True
+relocation, inconsistency = 5213
+3504934	3543924	3829722	3868583	U00096.3	contig_1	97.07		True
+local misassembly
+3543969	3563693	3868834	3888505	U00096.3	contig_1	96.62		True
+relocation, inconsistency = -7569
+3564131	3583418	3896512	3915799	U00096.3	contig_1	98.21		True
+local misassembly
+3584196	3608644	3915800	3940263	U00096.3	contig_1	96.82		True
+local misassembly
+3608764	3612910	3940837	3944983	U00096.3	contig_1	97.76		True
+relocation, inconsistency = -15355
+3612949	3618987	3960377	3966414	U00096.3	contig_1	96.47		True
+local misassembly
+3625609	3648784	3972235	3995219	U00096.3	contig_1	95.82		True
+relocation, inconsistency = -2168
+3648934	3650750	3997537	3999351	U00096.3	contig_1	95.77		True
+local misassembly
+3653231	3655213	4002126	4004102	U00096.3	contig_1	96.72		True
+relocation, inconsistency = -9023
+3655250	3674370	4013162	4032272	U00096.3	contig_1	98.13		True
+indel: indel (> 5bp)
+3674533	3680335	4032416	4038218	U00096.3	contig_1	97.69		True
+relocation, inconsistency = -1578780
+2101745	2102947	4038408	4039610	U00096.3	contig_1	99.67		True
+relocation, inconsistency = 1575273
+3680443	3700287	4041833	4061674	U00096.3	contig_1	97.9		True
+local misassembly
+3699896	3708308	4061766	4070021	U00096.3	contig_1	95.78		True
+relocation, inconsistency = -1270
+3708527	3720632	4071510	4083616	U00096.3	contig_1	97.63		True
+relocation, inconsistency = 1405
+3722077	3750916	4083656	4112302	U00096.3	contig_1	96.42		True
+relocation, inconsistency = -1218
+3754929	3761992	4117533	4124632	U00096.3	contig_1	96.18		True
+relocation, inconsistency = 8217
+3770242	3777028	4124665	4131449	U00096.3	contig_1	97.36		True
+relocation, inconsistency = -6566
+3777080	3781020	4138067	4142000	U00096.3	contig_1	95.18		True
+indel: indel (> 5bp)
+3781146	3781712	4142001	4142567	U00096.3	contig_1	97.18		True
+relocation, inconsistency = -1435
+3781710	3796859	4144000	4159151	U00096.3	contig_1	97.49		True
+relocation, inconsistency = 2979
+3807992	3833397	4167305	4192584	U00096.3	contig_1	96.82		True
+relocation, inconsistency = 668688
+4502090	4503515	4194010	4192585	U00096.3	contig_1	100.0		True
+relocation, inconsistency = 661583
+3833386	3840506	4194011	4201120	U00096.3	contig_1	96.24		True
+relocation, inconsistency = -16001
+3840558	3841833	4217173	4218448	U00096.3	contig_1	98.67		True
+local misassembly
+3841875	3845734	4219288	4223147	U00096.3	contig_1	98.13		True
+local misassembly
+3845732	3850791	4223857	4228912	U00096.3	contig_1	97.33		True
+relocation, inconsistency = -3395
+3850802	3861394	4232318	4242910	U00096.3	contig_1	98.54		True
+local misassembly
+3861387	3875478	4243411	4257502	U00096.3	contig_1	97.76		True
+local misassembly
+3876138	3896862	4258160	4278886	U00096.3	contig_1	97.71		True
+relocation, inconsistency = 1989
+3906875	3911630	4286910	4291574	U00096.3	contig_1	95.75		True
+relocation, inconsistency = -5221
+3911837	3959829	4297002	4344894	U00096.3	contig_1	97.88		True
+local misassembly
+3960674	4000163	4344962	4384451	U00096.3	contig_1	97.04		True
+local misassembly
+4000292	4061521	4385463	4446175	U00096.3	contig_1	97.08		True
+relocation, inconsistency = -1261
+4061519	4078913	4447434	4464766	U00096.3	contig_1	96.17		True
+relocation, inconsistency = -2049
+4078913	4086945	4466815	4474719	U00096.3	contig_1	95.73		True
+local misassembly
+4087424	4088032	4474720	4475329	U00096.3	contig_1	96.12		True
+relocation, inconsistency = 3598
+4094693	4106390	4478392	4490088	U00096.3	contig_1	97.87		True
+relocation, inconsistency = 1894828
+2167304	2167808	4522649	4522145	U00096.3	contig_1	97.43		True
+relocation, inconsistency = 1938422
+4106344	4118756	4522763	4535175	U00096.3	contig_1	98.49		True
+relocation, inconsistency = -1437
+4118847	4132268	4536703	4550000	U00096.3	contig_1	96.6		True
+relocation, inconsistency = -2813
+4132466	4137773	4553011	4558318	U00096.3	contig_1	97.16		True
+indel: indel (> 5bp)
+4137897	4153344	4558498	4573957	U00096.3	contig_1	97.72		True
+indel: indel (> 5bp)
+4153694	4202044	4574121	4622096	U00096.3	contig_1	97.67		True
+local misassembly
+4202526	4213164	4622557	4633199	U00096.3	contig_1	98.22		True
+local misassembly
+4213685	4230223	4633482	4649885	U00096.3	contig_1	96.21		True
+relocation, inconsistency = -6231
+4230319	4240733	4656212	4666406	U00096.3	contig_1	95.38		True
+relocation, inconsistency = 1797
+4242531	4306759	4666407	4730650	U00096.3	contig_1	96.25		True
+relocation, inconsistency = 6632
+4313662	4314229	4730921	4731488	U00096.3	contig_1	97.89		True
+indel: indel (> 5bp)
+4314342	4325805	4731489	4742900	U00096.3	contig_1	95.42		True
+local misassembly
+4326306	4385304	4742901	4801590	U00096.3	contig_1	98.07		True
+local misassembly
+4386047	4427988	4801778	4843755	U00096.3	contig_1	97.25		True
+relocation, inconsistency = -2924827
+1503162	1504908	4843756	4845502	U00096.3	contig_1	98.12		True
+relocation, inconsistency = 2923079
+4427991	4431248	4845506	4848763	U00096.3	contig_1	98.16		True
+relocation, inconsistency = -2806
+4431320	4437491	4851641	4857812	U00096.3	contig_1	97.47		True
+relocation, inconsistency = 1220
+4438724	4448397	4857825	4867481	U00096.3	contig_1	97.9		True
+local misassembly
+4449048	4476900	4867624	4895515	U00096.3	contig_1	96.33		True
+local misassembly
+4477182	4498181	4895737	4916734	U00096.3	contig_1	98.13		True
+relocation, inconsistency = 1336
+4499518	4500425	4916735	4917642	U00096.3	contig_1	100.0		True
+relocation, inconsistency = -2135
+4500422	4507458	4919774	4926810	U00096.3	contig_1	99.99		True
+relocation, inconsistency = 1430
+4509007	4509797	4926929	4927720	U00096.3	contig_1	96.72		True
+relocation, inconsistency = -5792
+4507459	4519239	4931174	4942954	U00096.3	contig_1	99.96		True
+relocation, inconsistency = -2461864
+2070659	2071213	4956238	4956792	U00096.3	contig_1	95.86		True
+local misassembly
+2076302	2077038	4962338	4963074	U00096.3	contig_1	97.15		True
+relocation, inconsistency = 2436636
+4519240	4536149	4968640	4985549	U00096.3	contig_1	99.98		True
+relocation, inconsistency = -3140106
+1396044	1397237	4985550	4986743	U00096.3	contig_1	99.67		True
+relocation, inconsistency = 3138907
+4536145	4573922	4986744	5024521	U00096.3	contig_1	99.96		True
+relocation, inconsistency = -3022
+4573918	4576067	5027539	5029688	U00096.3	contig_1	99.95		True
+relocation, inconsistency = -2184
+4576066	4591294	5031871	5047099	U00096.3	contig_1	98.72		True
+relocation, inconsistency = -11311
+4591596	4621677	5058712	5089113	U00096.3	contig_1	96.99		True
+relocation, inconsistency = 1056
+4623111	4628691	5089491	5095061	U00096.3	contig_1	96.58		True
+relocation, inconsistency = -3979
+4628830	4641652	5099179	5111851	U00096.3	contig_1	97.34		True
+fake: not a misassembly [linear representation of circular genome]
+1	15390	5111852	5127239	U00096.3	contig_1	98.5		True
+relocation, inconsistency = 1349
+16740	19795	5127240	5130295	U00096.3	contig_1	98.31		True
+relocation, inconsistency = -5736
+20564	75645	5136800	5191901	U00096.3	contig_1	97.1		True
+local misassembly
+78885	131883	5195463	5248224	U00096.3	contig_1	97.44		True
+CONTIG	contig_1	5248224	misassembled
+CONTIG	contig_2	85313	unaligned
+CONTIG	contig_3	34185	unaligned
+1468712	1469242	66012	66542	U00096.3	contig_4	96.8		True
+unknown
+272191	273954	76548	74785	U00096.3	contig_4	99.72		True
+unknown
+272191	273175	90802	91786	U00096.3	contig_4	99.8		True
+unknown
+1427597	1427919	92110	91788	U00096.3	contig_4	98.45		True
+unknown
+CONTIG	contig_4	114224	mis_unaligned

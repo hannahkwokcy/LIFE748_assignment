@@ -1,0 +1,147 @@
+/home/hannah/miniconda3/envs/genomics_env/bin/quast.py assemblies/flye_assembly.fasta assemblies/spades_contigs.fasta -r references/EcoliK12_GCA_000005845.2_ASM584v2_genomic.fna -g references/EcoliK12_GCA000005845.gff --gene-finding --threads 4 -o quast/quast_comparison_report
+
+Version: 5.3.0
+
+System information:
+  OS: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39 (linux_64)
+  Python version: 3.12.13
+  CPUs number: 8
+
+Started: 2026-03-17 10:38:16
+
+Logging to /home/hannah/LIFE748asm/quast/quast_comparison_report/quast.log
+
+CWD: /home/hannah/LIFE748asm
+Main parameters: 
+  MODE: default, threads: 4, min contig length: 500, min alignment length: 65, min alignment IDY: 95.0, \
+  ambiguity: one, min local misassembly length: 200, min extensive misassembly length: 1000
+
+Reference:
+  /home/hannah/LIFE748asm/references/EcoliK12_GCA_000005845.2_ASM584v2_genomic.fna ==> EcoliK12_GCA_000005845.2_ASM584v2_genomic
+
+Contigs:
+  Pre-processing...
+  1  assemblies/flye_assembly.fasta ==> flye_assembly
+  2  assemblies/spades_contigs.fasta ==> spades_contigs
+
+2026-03-17 10:38:17
+Running Basic statistics processor...
+  Reference genome:
+    EcoliK12_GCA_000005845.2_ASM584v2_genomic.fna, length = 4641652, num fragments = 1, GC % = 50.79
+  Contig files: 
+    1  flye_assembly
+    2  spades_contigs
+  Calculating N50 and L50...
+    1  flye_assembly, N50 = 5248224, L50 = 1, auN = 5028387.6, Total length = 5481946, GC % = 50.66, # N's per 100 kbp =  0.00
+    2  spades_contigs, N50 = 404630, L50 = 5, auN = 458519.8, Total length = 5456491, GC % = 50.64, # N's per 100 kbp =  0.00
+  Drawing Nx plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/basic_stats/Nx_plot.pdf
+  Drawing NGx plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/basic_stats/NGx_plot.pdf
+  Drawing cumulative plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/basic_stats/GC_content_plot.pdf
+  Drawing flye_assembly GC content plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/basic_stats/flye_assembly_GC_content_plot.pdf
+  Drawing spades_contigs GC content plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/basic_stats/spades_contigs_GC_content_plot.pdf
+  Drawing Coverage histogram (bin size: 2x)...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/basic_stats/coverage_histogram.pdf
+  Drawing spades_contigs coverage histogram (bin size: 2x)...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/basic_stats/spades_contigs_coverage_histogram.pdf
+Done.
+
+2026-03-17 10:38:20
+Running Contig analyzer...
+WARNING: Version of installed minimap2 differs from its version in the QUAST package (2.28). Please make sure that you use an actual version of software.
+  1  flye_assembly
+  2  spades_contigs
+  1  Logging to files /home/hannah/LIFE748asm/quast/quast_comparison_report/contigs_reports/contigs_report_flye_assembly.stdout and contigs_report_flye_assembly.stderr...
+  2  Logging to files /home/hannah/LIFE748asm/quast/quast_comparison_report/contigs_reports/contigs_report_spades_contigs.stdout and contigs_report_spades_contigs.stderr...
+  1  Aligning contigs to the reference
+  2  Aligning contigs to the reference
+WARNING: Version of installed minimap2 differs from its version in the QUAST package (2.28). Please make sure that you use an actual version of software.
+WARNING: Version of installed minimap2 differs from its version in the QUAST package (2.28). Please make sure that you use an actual version of software.
+  1  /home/hannah/miniconda3/envs/genomics_env/bin/minimap2 -c -x asm10 -B5 -O4,16 \
+     --no-long-join -r 200 -N 50 -s 65 -z 200 --mask-level 0.9 --min-occ 200 -g 2500 \
+     --score-N 2 --cs -t 2 quast/quast_comparison_report/quast_corrected_input/EcoliK12_GCA_000005845.2_ASM584v2_genomic.fna \
+     quast/quast_comparison_report/quast_corrected_input/flye_assembly.fasta > quast/quast_comparison_report/contigs_reports/minimap_output/flye_assembly.coords_tmp \
+     2>> quast/quast_comparison_report/contigs_reports/contigs_report_flye_assembly.stderr
+  2  /home/hannah/miniconda3/envs/genomics_env/bin/minimap2 -c -x asm10 -B5 -O4,16 \
+     --no-long-join -r 200 -N 50 -s 65 -z 200 --mask-level 0.9 --min-occ 200 -g 2500 \
+     --score-N 2 --cs -t 2 quast/quast_comparison_report/quast_corrected_input/EcoliK12_GCA_000005845.2_ASM584v2_genomic.fna \
+     quast/quast_comparison_report/quast_corrected_input/spades_contigs.fasta > quast/quast_comparison_report/contigs_reports/minimap_output/spades_contigs.coords_tmp \
+     2>> quast/quast_comparison_report/contigs_reports/contigs_report_spades_contigs.stderr
+  2  Analysis is finished.
+
+  1  Analysis is finished.
+
+  Creating total report...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/contigs_reports/misassemblies_report.txt, misassemblies_report.tsv, and misassemblies_report.tex
+  Transposed version of total report...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/contigs_reports/transposed_report_misassemblies.txt, transposed_report_misassemblies.tsv, and transposed_report_misassemblies.tex
+  Creating total report...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/contigs_reports/unaligned_report.txt, unaligned_report.tsv, and unaligned_report.tex
+  Drawing misassemblies by types plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/contigs_reports/misassemblies_plot.pdf
+  Drawing misassemblies FRCurve plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/contigs_reports/misassemblies_frcurve_plot.pdf
+Done.
+
+2026-03-17 10:38:23
+Running NA-NGA calculation...
+  1  flye_assembly, Largest alignment = 156391, NA50 = 35302, NGA50 = 45412, LA50 = 41, LGA50 = 30
+  2  spades_contigs, Largest alignment = 201743, NA50 = 31481, NGA50 = 44480, LA50 = 41, LGA50 = 30
+  Drawing cumulative plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/aligned_stats/cumulative_plot.pdf
+  Drawing NAx plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/aligned_stats/NAx_plot.pdf
+  Drawing NGAx plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/aligned_stats/NGAx_plot.pdf
+Done.
+
+2026-03-17 10:38:24
+Running Genome analyzer...
+  NOTICE: No file with operons were provided. Use the -O option if you want to specify it.
+  Loaded 4418 genomic features of type "ANY"
+  1  flye_assembly
+  2  spades_contigs
+  1  Analysis is finished.
+  2  Analysis is finished.
+  Drawing genomic features cumulative plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/genome_stats/features_cumulative_plot.pdf
+  Drawing genomic features FRCurve plot...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/genome_stats/features_frcurve_plot.pdf
+  Drawing # complete genomic features histogram...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/genome_stats/complete_features_histogram.pdf
+  Drawing Genome fraction, % histogram...
+    saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/genome_stats/genome_fraction_histogram.pdf
+Done.
+
+2026-03-17 10:38:26
+WARNING: GeneMark tool can't be started because of license limitations!
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2026-03-17 10:38:26
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 2: Creating PDF with all tables and plots...
+  2 of 2: Creating Icarus viewers...
+Done
+
+2026-03-17 10:38:27
+RESULTS:
+  Text versions of total report are saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/report.html
+  PDF version (tables and plots) is saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/report.pdf
+  Icarus (contig browser) is saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/icarus.html
+  Log is saved to /home/hannah/LIFE748asm/quast/quast_comparison_report/quast.log
+
+Finished: 2026-03-17 10:38:27
+Elapsed time: 0:00:11.659793
+NOTICEs: 2; WARNINGs: 3; non-fatal ERRORs: 0
+
+Thank you for using QUAST!

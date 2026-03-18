@@ -1,0 +1,157 @@
+- STAGE: Before start
+  args: []
+  config_dir: ''
+  del_after:
+  - .bin_reads
+  - tmp/spades_aqxvtwz7
+  - configs
+  - .bin_reads
+  - tmp/spades_qwzo8xit
+  - configs
+  job_uuid: SPAdes_Before_start_KOPYBP8C07719B9O0DMYPOWVX634H782
+  mpi_support: false
+  output_files: []
+  path: 'true'
+  short_name: before_start
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  job_uuid: SPAdes_Assembling_MOAS9OE925ET4XH2Z6NJTIX0T63KK14A
+  mpi_support: false
+  output_files: []
+  path: 'true'
+  short_name: as_start
+- STAGE: K21
+  args:
+  - /home/hannah/LIFE748asm/GN6_spades/K21/configs/config.info
+  - /home/hannah/LIFE748asm/GN6_spades/K21/configs/isolate_mode.info
+  config_dir: K21
+  del_after: []
+  job_uuid: hpcSPAdes_K21_51M7SSX7ZVOCCEN1LBHGDCGQLN6JU4EJ
+  mpi_support: true
+  output_files: []
+  path: /home/hannah/miniconda3/envs/genomics_env/bin/{spades_core}
+  short_name: k21
+- STAGE: K33
+  args:
+  - /home/hannah/LIFE748asm/GN6_spades/K33/configs/config.info
+  - /home/hannah/LIFE748asm/GN6_spades/K33/configs/isolate_mode.info
+  config_dir: K33
+  del_after: []
+  job_uuid: hpcSPAdes_K33_68YGEUQDYATWEG5WQLFSTPOLZAS4NG0C
+  mpi_support: true
+  output_files: []
+  path: /home/hannah/miniconda3/envs/genomics_env/bin/{spades_core}
+  short_name: k33
+- STAGE: K55
+  args:
+  - /home/hannah/LIFE748asm/GN6_spades/K55/configs/config.info
+  - /home/hannah/LIFE748asm/GN6_spades/K55/configs/isolate_mode.info
+  config_dir: K55
+  del_after: []
+  job_uuid: hpcSPAdes_K55_BLRSVIAFIO1VY8CXGY2SGXIW1JJN1FJ8
+  mpi_support: true
+  output_files: []
+  path: /home/hannah/miniconda3/envs/genomics_env/bin/{spades_core}
+  short_name: k55
+- STAGE: K77
+  args:
+  - /home/hannah/LIFE748asm/GN6_spades/K77/configs/config.info
+  - /home/hannah/LIFE748asm/GN6_spades/K77/configs/isolate_mode.info
+  config_dir: K77
+  del_after: []
+  job_uuid: hpcSPAdes_K77_YZFC0K30VX4XFRYP279R1IT2OYDPH5F5
+  mpi_support: true
+  output_files: []
+  path: /home/hannah/miniconda3/envs/genomics_env/bin/{spades_core}
+  short_name: k77
+- STAGE: K99
+  args:
+  - /home/hannah/LIFE748asm/GN6_spades/K99/configs/config.info
+  - /home/hannah/LIFE748asm/GN6_spades/K99/configs/isolate_mode.info
+  config_dir: K99
+  del_after: []
+  job_uuid: hpcSPAdes_K99_YBGJ925PORJ11A60SQ6U17VCKE0VFON0
+  mpi_support: true
+  output_files: []
+  path: /home/hannah/miniconda3/envs/genomics_env/bin/{spades_core}
+  short_name: k99
+- STAGE: K127
+  args:
+  - /home/hannah/LIFE748asm/GN6_spades/K127/configs/config.info
+  - /home/hannah/LIFE748asm/GN6_spades/K127/configs/isolate_mode.info
+  config_dir: K127
+  del_after: []
+  job_uuid: hpcSPAdes_K127_TY1YDHYSQOOVDLND4EMZZHDB6S9B9BHW
+  mpi_support: true
+  output_files: []
+  path: /home/hannah/miniconda3/envs/genomics_env/bin/{spades_core}
+  short_name: k127
+- STAGE: Copy files
+  args:
+  - /home/hannah/miniconda3/envs/genomics_env/share/spades/spades_pipeline/scripts/copy_files.py
+  - /home/hannah/LIFE748asm/GN6_spades/K127/before_rr.fasta
+  - /home/hannah/LIFE748asm/GN6_spades/before_rr.fasta
+  - /home/hannah/LIFE748asm/GN6_spades/K127/assembly_graph_after_simplification.gfa
+  - /home/hannah/LIFE748asm/GN6_spades/assembly_graph_after_simplification.gfa
+  - /home/hannah/LIFE748asm/GN6_spades/K127/final_contigs.fasta
+  - /home/hannah/LIFE748asm/GN6_spades/contigs.fasta
+  - /home/hannah/LIFE748asm/GN6_spades/K127/first_pe_contigs.fasta
+  - /home/hannah/LIFE748asm/GN6_spades/first_pe_contigs.fasta
+  - /home/hannah/LIFE748asm/GN6_spades/K127/strain_graph.gfa
+  - /home/hannah/LIFE748asm/GN6_spades/strain_graph.gfa
+  - /home/hannah/LIFE748asm/GN6_spades/K127/scaffolds.fasta
+  - /home/hannah/LIFE748asm/GN6_spades/scaffolds.fasta
+  - /home/hannah/LIFE748asm/GN6_spades/K127/scaffolds.paths
+  - /home/hannah/LIFE748asm/GN6_spades/scaffolds.paths
+  - /home/hannah/LIFE748asm/GN6_spades/K127/assembly_graph_with_scaffolds.gfa
+  - /home/hannah/LIFE748asm/GN6_spades/assembly_graph_with_scaffolds.gfa
+  - /home/hannah/LIFE748asm/GN6_spades/K127/assembly_graph.fastg
+  - /home/hannah/LIFE748asm/GN6_spades/assembly_graph.fastg
+  - /home/hannah/LIFE748asm/GN6_spades/K127/final_contigs.paths
+  - /home/hannah/LIFE748asm/GN6_spades/contigs.paths
+  config_dir: ''
+  del_after:
+  - .bin_reads
+  - tmp/spades_kxgjjcr5
+  job_uuid: SPAdes_Copy_files_JV95R9O6ZSDSU1DETQ8EPO8ZIKWQ0J73
+  mpi_support: false
+  output_files: []
+  path: /home/hannah/miniconda3/envs/genomics_env/bin/python3
+  short_name: copy_files
+- STAGE: Assembling
+  args: []
+  config_dir: ''
+  del_after: []
+  job_uuid: SPAdes_Assembling_N7U6QT2YP58F5T58C00FG9JKMJK5XFW7
+  mpi_support: false
+  output_files: []
+  path: 'true'
+  short_name: as_finish
+- STAGE: Breaking scaffolds
+  args:
+  - /home/hannah/miniconda3/envs/genomics_env/share/spades/spades_pipeline/scripts/breaking_scaffolds_script.py
+  - --result_scaffolds_filename
+  - /home/hannah/LIFE748asm/GN6_spades/scaffolds.fasta
+  - --misc_dir
+  - /home/hannah/LIFE748asm/GN6_spades/misc
+  - --threshold_for_breaking_scaffolds
+  - '3'
+  config_dir: ''
+  del_after: []
+  job_uuid: SPAdes_Breaking_scaffolds_2O5MDEWFK1J6D7ECHB0IVI1I366PG85L
+  mpi_support: false
+  output_files: []
+  path: /home/hannah/miniconda3/envs/genomics_env/bin/python3
+  short_name: bs
+- STAGE: Terminate
+  args: []
+  config_dir: ''
+  del_after:
+  - configs
+  job_uuid: SPAdes_Terminate_09O514TUFNBDNM1XGRUWQL4LVH985FWM
+  mpi_support: false
+  output_files: []
+  path: 'true'
+  short_name: terminate

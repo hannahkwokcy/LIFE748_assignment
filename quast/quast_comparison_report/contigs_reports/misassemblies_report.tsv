@@ -1,0 +1,21 @@
+Assembly	flye_assembly	spades_contigs
+# misassemblies	187	174
+  # contig misassemblies	187	174
+    # c. relocations	187	174
+    # c. translocations	0	0
+    # c. inversions	0	0
+  # scaffold misassemblies	0	0
+    # s. relocations	0	0
+    # s. translocations	0	0
+    # s. inversions	0	0
+# misassembled contigs	1	13
+Misassembled contigs length	5248224	5115385
+# local misassemblies	83	77
+# scaffold gap ext. mis.	0	0
+# scaffold gap loc. mis.	0	0
+# unaligned mis. contigs	1	1
+# mismatches	87924	88088
+# indels	1767	1768
+    # indels (<= 5 bp)	1502	1502
+    # indels (> 5 bp)	265	266
+Indels length	19422	19435

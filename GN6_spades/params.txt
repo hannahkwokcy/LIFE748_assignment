@@ -1,0 +1,32 @@
+Command line: /home/hannah/miniconda3/envs/genomics_env/bin/spades.py	--isolate	--only-assembler	-t	8	-m	12	-s	/home/hannah/LIFE748asm/GN6_hifix30.fastq	-o	/home/hannah/LIFE748asm/GN6_spades	
+
+System information:
+  SPAdes version: 4.2.0
+  Python version: 3.12.13
+  OS: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+
+Output dir: /home/hannah/LIFE748asm/GN6_spades
+Mode: ONLY assembling (without read error correction)
+Debug mode is turned OFF
+
+Dataset parameters:
+  Isolate mode
+  Reads:
+    Library number: 1, library type: single
+      left reads: not specified
+      right reads: not specified
+      interlaced reads: not specified
+      single reads: ['/home/hannah/LIFE748asm/GN6_hifix30.fastq']
+      merged reads: not specified
+Assembly parameters:
+  k: automatic selection based on read length
+  Repeat resolution is enabled
+  Mismatch careful mode is turned OFF
+  MismatchCorrector will be SKIPPED
+  Coverage cutoff is turned OFF
+  Assembly graph output will use GFA v1.2 format
+Other parameters:
+  Dir for temp files: /home/hannah/LIFE748asm/GN6_spades/tmp
+  Threads: 8
+  Memory limit (in Gb): 12
+

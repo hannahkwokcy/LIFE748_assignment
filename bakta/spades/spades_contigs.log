@@ -1,0 +1,11 @@
+10:40:05.772 - INFO - UTILS - version=1.12.0
+10:40:05.772 - INFO - UTILS - developer: Oliver Schwengers, github.com/oschwengers
+10:40:05.772 - INFO - UTILS - command: /home/hannah/miniconda3/envs/bakta/bin/bakta --db /tmp_data/db-light assemblies/spades_contigs.fasta --output bakta/spades
+10:40:05.772 - INFO - UTILS - local time: 2026-03-17 10:40:05
+10:40:05.774 - INFO - UTILS - machine: type=x86_64, cores=8
+10:40:05.774 - INFO - UTILS - system: type=Linux, release=6.6.87.2-microsoft-standard-WSL2
+10:40:05.774 - INFO - UTILS - python: version=3.13.12, implementation=CPython
+10:40:05.774 - INFO - CONFIG - threads=8
+10:40:05.774 - INFO - CONFIG - verbose=False
+10:40:05.774 - INFO - CONFIG - debug=False
+10:40:05.774 - ERROR - CONFIG - unvalid database path: type=parameter, path=/tmp_data/db-light

@@ -1,0 +1,16 @@
+Genomic features of type "ANY" loaded: 4418
+reference chromosomes:
+	U00096.3 (total length: 4641652 bp, total length without N's: 4641652 bp, maximal covered length: 4147034 bp)
+
+total genome size: 4641652
+
+gap min size: 50
+partial gene/operon min size: 100
+
+
+
+assembly                 | genome    | duplication | gaps      | genes     | partial   | operons   | partial   |
+                         | fraction  | ratio       | number    |           | genes     |           | operons   |
+========================================================================================================================
+flye_assembly            | 89.344    | 1.006       | 181       | 3782      | 153       | -         | -         |
+spades_contigs           | 89.335    | 1.006       | 185       | 3784      | 150       | -         | -         |

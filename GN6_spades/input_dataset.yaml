@@ -1,0 +1,4 @@
+- "number": !!int "1"
+  "single reads":
+  - "/home/hannah/LIFE748asm/GN6_hifix30.fastq"
+  "type": "single"

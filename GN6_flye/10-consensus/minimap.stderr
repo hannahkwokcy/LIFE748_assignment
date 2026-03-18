@@ -1,0 +1,12 @@
+[samfaipath] build FASTA index...
+[M::mm_idx_gen::0.696*0.88] collected minimizers
+[M::mm_idx_gen::0.944*0.79] sorted minimizers
+[M::main::0.944*0.79] loaded/built the index for 4 target sequence(s)
+[M::mm_mapopt_update::0.981*0.78] mid_occ = 50
+[M::mm_idx_stat] kmer size: 19; skip: 19; is_hpc: 0; #seq: 4
+[M::mm_idx_stat::1.019*0.77] distinct minimizers: 533847 (96.75% are singletons); average occurrences: 1.046; average spacing: 10.000; total length: 5582004
+[M::worker_pipeline::249.133*0.86] mapped 8542 sequences
+[M::main] Version: 2.24-r1155-dirty
+[M::main] CMD: flye-minimap2 -x map-hifi -t 1 -a -p 0.5 -N 10 --sam-hit-only -L -K 1G -z 1000 -Q --secondary-seq -I 64G /home/hannah/LIFE748asm/GN6_flye/00-assembly/draft_assembly.fasta /home/hannah/LIFE748asm/GN6_hifix30.fastq
+[M::main] Real time: 249.255 sec; CPU: 214.405 sec; Peak RSS: 0.392 GB
+[bam_sort_core] merging from 0 files and 4 in-memory blocks...
