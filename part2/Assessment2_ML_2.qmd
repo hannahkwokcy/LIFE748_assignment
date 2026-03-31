@@ -1,0 +1,406 @@
+---
+title: "LIFE748 - ML and data analysis"
+author: "Francesco Del Carratore"
+format: html
+editor: visual
+---
+
+## Introduction
+
+In this tutorial, we will analyze a simulated RNA-seq dataset. Our goal is to identify Differentially Expressed Genes (DEGs) between two conditions (Condition A and Condition B), visualize the results, and use both unsupervised and supervised machine learning techniques to classify the samples based on their gene expression profiles.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## Step 0: Load the required libraries
+
+```{r warning=FALSE, message=FALSE }
+library(DESeq2) # Bioconductor
+library(ggplot2) # CRAN
+library(EnhancedVolcano) # Bioconductor
+library(pheatmap) # Bioconductor
+library(caret) # CRAN
+library(MASS) # CRAN
+library(e1071) # CRAN
+library(groupdata2)
+```
+
+If these packages are not already available, you will need to install them either from CRAN (install.packages('package_name')), or from Bioconductor (BiocManager::install('package_name')
+
+## Step 1: Load the Count Matrix
+
+First, we load the raw count matrix and set up the sample metadata (phenotype data). We assume the first 25 columns belong to Condition A, and the next 25 belong to Condition B.
+
+```{r}
+counts <- read.csv("dataset_LIFE748_2.csv", row.names = 1)
+
+colData <- data.frame(
+  row.names = colnames(counts),
+  Condition = c(rep('CondA',25),rep('CondB',25))
+)
+
+```
+
+## Step 2: Normalize and Identify DEGs with DESeq2
+
+We will use `DESeq2` to normalize the library sizes and perform statistical testing to identify which genes are differentially expressed between Condition B and Condition A.
+
+```{r}
+# 1. Create the DESeq2 dataset object
+dds <- DESeqDataSetFromMatrix(countData = counts,
+                              colData = colData,
+                              design = ~ Condition)
+
+# 2. Run the DESeq2 pipeline
+dds <- DESeq(dds)
+
+# 3. Extract the results (Condition B vs Condition A)
+res <- results(dds)
+
+# 4. Convert this object into a dataframe for easier visualisation (optional)
+
+res <- as.data.frame(res)
+
+# 5. Extract normalized counts for downstream machine learning
+vsd <- vst(dds, blind = FALSE) # Variance stabilizing transformation
+normalized_counts <- assay(vsd)
+
+```
+
+## Step 3: Report DEGs (Table and Volcano Plot)
+
+We define statistically significant DEGs as those with an adjusted p-value (FDR) \< 0.05 and an absolute log2 Fold Change \> 1.
+
+```{r}
+#convert to dataframe for further analysis
+res <- as.data.frame(res)
+#save the statistically significant DEGs into a new variable
+res_sig <- res[res$padj < 0.05 & abs(res$log2FoldChange)>1, ]
+```
+
+Generate a volcano plot to visualise the results
+
+```{r}
+#| fig-width: 6
+#| fig-height: 9
+
+#volcano plot to visualise the results
+EnhancedVolcano(res,
+  lab = rownames(res),
+  x = "log2FoldChange",
+  y = "padj",
+  pCutoff = 0.05,
+  FCcutoff = 1,
+  ylim = c(0, 8),
+  pointSize = 2.0,
+  labSize = 5.0
+)
+
+```
+
+## Step 4: Isolate Differentially Expressed Genes
+
+To reduce noise and dimensionality for our machine learning algorithms, we will subset our normalized count matrix to only include the statistically significant DEGs identified above.
+
+In order to make sure we don't lose too much information, let's relax a bit the thresholds for significance
+
+```{r}
+#relax thresholds
+res_sig <- res[res$padj < 0.1 & abs(res$log2FoldChange)>0.58, ]
+#extract the count data for significant genes
+sig_genes <- intersect(rownames(res_sig), rownames(normalized_counts))
+#create a new dataframe to store the statistics for these significant genes
+normalized_counts_sig <- normalized_counts[sig_genes, ]
+```
+
+## Step 5: Unsupervised Clustering
+
+Let's see if the samples naturally group by their condition without explicitly telling the algorithm which sample belongs to which group. We will use Hierarchical Clustering and K-means.
+
+## K-means
+
+```{r}
+#run elbow test
+k.max <- 10
+wss <- sapply(1:k.max, 
+              function(k){kmeans(normalized_counts_sig[,1:2], k, nstart=5,iter.max = 15 )$tot.withinss})
+plot(1:k.max, wss,
+     type="b", pch = 19, frame = FALSE, 
+     xlab="Number of clusters K",
+     ylab="Total within-clusters sum of squares")
+
+```
+
+```{r}
+#ensure reproducibility
+set.seed(123)
+#find 2 clusters
+k <- 2
+#perform kmeans
+km_samples <- kmeans(t(normalized_counts_sig), centers = k, nstart = 20)
+
+#perform pca
+pca <- prcomp(t(normalized_counts_sig), scale. = TRUE)
+#save pca statistics into new dataframe
+pca_df <- data.frame(PC1 = pca$x[,1],
+                     PC2 = pca$x[,2],
+                     Cluster = as.factor(km_samples$cluster))
+
+#find the centers of each cluster
+centers_pca <- as.data.frame(predict(pca, km_samples$centers))
+centers_pca$Cluster <- as.factor(1:k)
+
+#plot a graph with points colored the cluster predicted by kmeans
+ggplot(pca_df, aes(x = PC1, y = PC2, col = Cluster)) +
+  geom_point(size = 2) +
+  #plot center of each cluster
+  geom_point(data = centers_pca, 
+             aes(x = PC1, y = PC2, shape = Cluster), 
+             size = 4, color = 'black') +
+  #define colors for each cluster group
+  scale_color_manual(name = "Cluster Group", 
+                     values = c("1" = "#E41A1C", "2" = "#377EB8")) +
+  #ensure the shape and label match the data
+  scale_shape_manual(name = "Centroid", 
+                     values = c("1" = 17, "2" = 17), # 17 is the triangle
+                     labels = c("1" = "Center 1", "2" = "Center 2")) +
+  theme_minimal(base_size = 16)
+```
+
+## Hierarchical clustering
+
+```{r}
+#calculate distance matrix using euclidean method
+dist_samples <- dist(t(normalized_counts_sig), method = "euclidean")
+
+#create a ward's linkage
+hc_samples <- hclust(dist_samples, method = "ward.D2")
+
+#cut the dendrogram according to the numnber of clusters
+plot(hc_samples, main = "Hierarchical Clustering of Samples", 
+     xlab = "", sub = "", cex = 0.5, hang = -1)
+rect.hclust(hc_samples , k=2, border = 2:6)
+```
+
+Visualise the results (HINT: an heatmap would be perfect for this).
+
+```{r}
+library(pheatmap)
+
+#create new datafrae for producing heatmap
+heatmap_df <- data.frame(
+  #extract condition (ground truth) from column data
+  Condition = as.factor(colData$Condition),
+  KMeans = as.factor(km_samples$cluster)
+)
+
+#heatmap plotting
+pheatmap(normalized_counts_sig, 
+         main = "K-Means vs Hierarchical Clustering Heatmap",
+         annotation_col = heatmap_df, 
+         #create upper dendrogram according to previous hierarchical clustering
+         cluster_cols = hc_samples,
+         clustering_distance_cols = dist_samples,
+         #apply z-score transformation to ensure comparable results
+         scale = "row",  
+         #remove left dendrogram, column and row names to decrease cluttering
+         show_rownames = FALSE,
+         show_colnames = FALSE,
+         treeheight_row = 0,
+         color = colorRampPalette(c("navy", "white", "firebrick3"))(100))
+```
+
+## Step 6: Supervised Learning (LDA and SVM)
+
+Next, we train classifiers to predict the condition of a sample based on its DEG expression profile. We will split the data into a training set (70%) and a testing set (30%).
+
+```{r}
+#enuure reproducibility
+set.seed(122)
+#create new transposed dataframe
+df <- as.data.frame(t(normalized_counts_sig))
+#add the condition information (ground truth)
+df$Condition <- colData$Condition
+df$Condition <- as.factor(df$Condition)
+
+#split the data into training and testing sets
+trainIndex <- createDataPartition(df$Condition,p=0.7, list=FALSE,times=1)
+df_train <- df[trainIndex,] 
+df_validate <- df[-trainIndex,]
+```
+
+Train LDA (Linear Discriminant Analysis)
+
+```{r}
+#train the LDA model
+model_LDA <- lda(Condition~., data=df_train)
+model_LDA
+plot(model_LDA)
+```
+
+Train SVM (Support Vector Machine)
+
+```{r}
+#train the SVM model
+model_SVM <- svm(Condition~., data=df_train)
+summary(model_SVM)
+```
+
+## Step 7: Compare Classifier Performance
+
+Finally, we use confusion matrices to evaluate and compare how well LDA and SVM performed on the unseen test dataset.
+
+```{r}
+#run a prediction using the LDA model
+pred_LDA <- predict(model_LDA, newdata=df_validate,type="class")
+#create confusion matrix
+CM_LDA = confusionMatrix(data=as.factor(pred_LDA$class), as.factor(df_validate$Condition))
+CM_LDA
+
+```
+
+```{r}
+#run prediction using SVM model
+pred_SVM <- predict(model_SVM, newdata=df_validate,type="class")
+#create confusion matrix
+CM_SVM = confusionMatrix(data=as.factor(pred_SVM), as.factor(df_validate$Condition))
+CM_SVM
+
+```
+
+## Step 8: Is this enough?
+
+is this enough to compare the classifiers? What if you use a k-fold cross-validation approach? Will you get similar results with different random splits?
+
+```{r}
+#create folds for cross validation
+folds <- fold(data=df, k=7)$.folds
+
+#create empty lists to store output
+CMs <- list()
+models <- list()
+out <- NULL
+
+for(k in 1:7){
+  #split training and testing data based on fold ID
+  df_test <- df[folds==k,]
+  df_train <- df[folds!=k,]
+  
+  #train the model
+  model_LDA <- lda(Condition~., data=df_train)
+  
+  #store model in the list
+  models[[k]] <- model_LDA
+  
+  #predict using LDA
+  pred <- predict(model_LDA, newdata=df_test)
+  #create confusion matrix
+  CM = confusionMatrix(data=as.factor(pred$class), as.factor(df_test$Condition))
+  
+  #store the confusion matrix and metrics
+  CMs[[k]] <- CM
+  out <- rbind(out, CM$overall)
+}
+
+
+cv_results <- as.data.frame(out)
+lda_summary_stats <- colMeans(cv_results)
+print(lda_summary_stats)
+
+```
+
+```{r}
+#create folds for cross validation
+folds <- fold(data=df, k=7)$.folds
+
+#create empty lists to store output
+CMs <- list()
+models <- list()
+out <- NULL
+
+for(k in 1:7){
+  #split training and testing data based on fold ID
+  df_test <- df[folds==k,]
+  df_train <- df[folds!=k,]
+  
+  #train the model
+  model_LDA <- lda(Condition~., data=df_train)
+  
+  #store model in the list
+  models[[k]] <- model_SVM
+  
+  #predict using LDA
+  pred <- predict(model_SVM, newdata=df_test)
+  #create confusion matrix
+  CM = confusionMatrix(data=as.factor(pred), as.factor(df_test$Condition))
+  
+  #store the confusion matrix and metrics
+  CMs[[k]] <- CM
+  out <- rbind(out, CM$overall)
+}
+
+cv_results <- as.data.frame(out)
+svm_summary_stats <- colMeans(cv_results)
+print(svm_summary_stats)
+
+```
+
+## Interprete Biologically Important Markers
+
+```{r}
+#retrieve centers from k means testing
+centers <- km_samples$centers 
+
+#calculate the difference of geneexpression between the centers of cluster 1 and 2
+gene_importance_km <- abs(centers[1, ] - centers[2, ])
+
+#find the top 2 genes that contribute most to the clustering
+top_km_markers <- sort(gene_importance_km, decreasing = TRUE)[1:2]
+print(top_km_markers)
+
+```
+
+```{r}
+#calculate the weight vector by multiplying coefficients by the support vectors
+w <- t(model_SVM$coefs) %*% model_SVM$SV
+
+#find the genes with the highest absolute weights
+svm_weights <- abs(as.vector(w))
+#create a list of gene names
+names(svm_weights) <- colnames(df_train)[-ncol(df_train)] 
+#match the svm weights to each gene and extract the top 10 genes with the highest weights
+top_svm_markers <- sort(svm_weights, decreasing = TRUE)[1:10]
+print(top_svm_markers)
+
+#extract the scaling coefficients from the LDA model
+lda_importance <- abs(model_LDA$scaling[,1])
+
+#find top 10 genes that contribute most to the LD1 linear discriminant
+top_lda_markers <- sort(lda_importance, decreasing = TRUE)[1:10]
+print(top_lda_markers)
+
+#find common genes for the LDA and SVM method
+supervised_markers <- intersect(names(top_svm_markers), names(top_lda_markers))
+print(supervised_markers)
+```
+
+## Data preparation for part 3
+
+```{r}
+#create a dataframe with the gene IDs and fold changes
+res_sig_ordered <- res_sig[order(abs(res_sig$log2FoldChange), decreasing = TRUE), ]
+export_df <- data.frame(
+  GeneID = rownames(res_sig_ordered),
+  log2FoldChange = res_sig_ordered$log2FoldChange,
+  padj = res_sig_ordered$padj
+)
+
+#write the data into a new tsv file
+write.table(export_df, 
+            file = "significant_genes_with_FC.txt", 
+            sep = "\t",
+            row.names = FALSE,
+            col.names = TRUE,
+            quote = FALSE)
+```
