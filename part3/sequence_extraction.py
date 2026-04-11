@@ -7,10 +7,14 @@ target_degs = ["nikA", "arsC", "stpA", "lrp", "argR"]
 
 # 2. Define pairs of (TSV, FAA) for each pipeline
 pipelines = {
-    "Flye_Prokka": {"tsv": "prokka_flye.tsv", "faa": "prokka_flye.faa"},
-    "SPAdes_Prokka": {"tsv": "prokka_spades.tsv", "faa": "prokka_spades.faa"},
-    "Flye_Bakta": {"tsv": "bakta_flye.tsv", "faa": "bakta_flye.faa"},
-    "SPAdes_Bakta": {"tsv": "bakta_spades.tsv", "faa": "bakta_spades.faa"}
+    "Flye_Prokka": {"tsv": "/home/hannah/LIFE748asm/part1/annotations/prokka_flye.tsv", 
+                    "faa": "/home/hannah/LIFE748asm/part1/annotations/prokka_flye.faa"},
+    "SPAdes_Prokka": {"tsv": "/home/hannah/LIFE748asm/part1/annotations/prokka_spades.tsv", 
+                      "faa": "/home/hannah/LIFE748asm/part1/annotations/prokka_spades.faa"},
+    "Flye_Bakta": {"tsv": "/home/hannah/LIFE748asm/part1/annotations/bakta_flye.tsv", 
+                   "faa": "/home/hannah/LIFE748asm/part1/annotations/bakta_flye.faa"},
+    "SPAdes_Bakta": {"tsv": "/home/hannah/LIFE748asm/part1/annotations/bakta_spades.tsv",
+                    "faa": "/home/hannah/LIFE748asm/part1/annotations/bakta_spades.faa"}
 }
 
 extracted_records = []

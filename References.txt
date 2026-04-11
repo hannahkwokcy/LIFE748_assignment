@@ -1,0 +1,31 @@
+Assembly
+Kolmogorov, M., Yuan, J., Pevzner, P.A. and Tang, H. (2019) 'Assembly of long error-prone reads using repeat graphs', Nature Communications, 10(1), p. 3373. doi: 10.1038/s41467-019-11270-2. 
+Bankevich, A. et al. (2012) ‘SPAdes: a new genome assembly algorithm and its applications to single-cell sequencing’, Journal of Computational Biology, 19(5), pp. 455–477. doi: 10.1089/cmb.2012.0021
+Gurevich, A., Saveliev, V., Vyahhi, N. and Tesler, G., 2013. QUAST: quality assessment tool for genome assemblies. Bioinformatics, 29(8), pp.1072-1075
+
+Annotation
+Schwengers, O., Jelonek, L., Dieckmann, M.A., Beyvers, S., Blom, J. and Goesmann, A. (2021) ‘Bakta: rapid and standardized annotation of bacterial genomes via alignment-free sequence identification’, Microbial Genomics, 7(11), p. 000685. doi: 10.1099/mgen.0.000685.
+Seemann, T. (2014) 'Prokka: rapid prokaryotic genome annotation', Bioinformatics, 30(14), pp. 2068–2069. Available at: https://doi.org/10.1093/bioinformatics/btu153.
+
+Differential expression analysis 
+Love, M. I., Huber, W., & Anders, S. (2014). Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biology, 15(12), 550. doi:10.1186/s13059-014-0550-8.
+Blighe, K., Rana, S., & Lewis, M. (2018). EnhancedVolcano: Publication-ready variance stabilizing transformation and gene ranking. R package version 1.20.0.
+
+Machine Learning
+Meyer, D. et al. (2023). e1071: Misc Functions of the Department of Statistics, Probability Theory Group. R package version 1.7-13.
+Olsen, L. R. (2022). groupdata2: Creating Groups and Folds for Data Analysis. R package version 2.0.2.
+Kuhn, M. (2008). Building Predictive Models in R Using the caret Package. Journal of Statistical Software, 28(5), 1–26. doi:10.18637/jss.v028.i05.
+Kolde, R. (2019). pheatmap: Pretty Heatmaps. R package version 1.0.12.
+Wickham, H. (2016). ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York.
+Venables, W. N., & Ripley, B. D. (2002). Modern Applied Statistics with S. Fourth Edition. Springer, New York.
+
+Structural Biology
+Jumper, J. et al. “Highly accurate protein structure prediction with AlphaFold.” Nature, 596, pages 583–589 (2021). DOI: 10.1038/s41586-021-03819-2
+Keseler, I.M., Gama-Castro, S., Mackie, A., Billington, R., Bonavides-Martínez, C., Caspi, R., Kothari, A., Krummenacker, M., Midford, P.E., Muñiz-Rascado, L., Ong, W.K., Paley, S., Santos-Zavaleta, A., Subhraveti, P., Tierrafría, V.H., Wolfe, A.J., Collado-Vides, J., Paulsen, I.T. and Karp, P.D. (2021). The EcoCyc Database in 2021. Frontiers in Microbiology, 12. doi:https://doi.org/10.3389/fmicb.2021.711077.
+Mirdita, M. et al. (2022). ColabFold: making deep learning-based protein structure prediction accessible to all. Nature Methods, 19, 679–682. doi:10.1038/s41592-022-01488-1.
+Varadi, M. et al. “AlphaFold Protein Structure Database in 2024: Providing structure coverage for over 214 million protein sequences.” Nucleic Acids Research, gkad1011 (2023). DOI: 10.1093/nar/gkad1011
+Varadi, M. et al. “AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models.” Nucleic Acids Research, 50(D1), pages D439–D444 (2021). DOI: 10.1093/nar/gkab1061
+van Kempen, M. et al. (2023). Fast and accurate protein structure search with Foldseek. Nature Biotechnology, 41, 1673–1682. doi:10.1038/s41587-023-01773-0.
+Paysan-Lafosse, T. et al. (2023). InterPro in 2022. Nucleic Acids Research, 51(D1), D418–D427. doi:10.1093/nar/gkac993.
+Jurrus, E. et al. (2018). Improvements to the APBS biomolecular solvation software suite. Protein Science, 27(1), 112–128. doi:10.1002/pro.3280.
+Schrödinger, LLC, 2025. The PyMOL Molecular Graphics System, Version 3.1. Available at: https://www.pymol.org/ [Accessed 3 April 2026]
