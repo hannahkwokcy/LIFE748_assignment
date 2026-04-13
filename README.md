@@ -11,7 +11,7 @@ This repository contains the intermediate and final outputs of the LIFE748 assig
 * `annotations` : Contains copies of the resulting `.faa`, `.fna`, and `.tsv` files from the four annotation outputs for easier access.
 * part1_graphs.r: Contains the code used for generating summary graphs.
 * prokka_bakta_comparison.r: Analyzes the outputs of the genome assembly pipelines and stores the results in `annotation_summary.csv`.
-* part1_code.txt` file: Contains all the commands and codes used to run the pipeline tools.
+* part1_code.txt: Contains all the commands and codes used to run the pipeline tools.
 
 ### `part2` Directory
 * Assessment2_ML_2.qmd: Contains the code used to perform both unsupervised and supervised machine learning.
