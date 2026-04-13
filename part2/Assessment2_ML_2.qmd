@@ -123,6 +123,7 @@ Let's see if the samples naturally group by their condition without explicitly t
 ```{r}
 #run elbow test
 k.max <- 10
+set.seed(123)
 wss <- sapply(1:k.max, 
               function(k){kmeans(normalized_counts_sig[,1:2], k, nstart=5,iter.max = 15 )$tot.withinss})
 plot(1:k.max, wss,
@@ -233,6 +234,8 @@ df_validate <- df[-trainIndex,]
 Logistic regression
 
 ```{r}
+#enuure reproducibility
+set.seed(122)
 #select the top 5 significant genes only for logistic regression
 res_ordered <- res_sig[order(res_sig$padj), ]
 top_genes <- rownames(res_ordered)[1:5]
@@ -248,6 +251,8 @@ summary(model_lr)
 Train LDA (Linear Discriminant Analysis)
 
 ```{r}
+#enuure reproducibility
+set.seed(122)
 #train the LDA model
 model_LDA <- lda(Condition~., data=df_train)
 model_LDA
@@ -257,9 +262,17 @@ plot(model_LDA)
 Train SVM (Support Vector Machine)
 
 ```{r}
-#train the SVM model
-model_SVM <- svm(Condition~., data=df_train)
-summary(model_SVM)
+#enuure reproducibility
+set.seed(122)
+#train the SVM models
+radial_SVM <- svm(Condition~., data=df_train, kernel = 'radial')
+
+linear_SVM <- svm(Condition~., data=df_train, kernel='linear')
+
+polynomial_SVM <- svm(Condition~., data=df_train, kernel='polynomial')
+
+sigmoid_SVM <- svm(Condition~., data=df_train, kernel='sigmoid')
+
 ```
 
 ## Step 7: Compare Classifier Performance
@@ -286,12 +299,33 @@ CM_LDA
 ```
 
 ```{r}
-#run prediction using SVM model
-pred_SVM <- predict(model_SVM, newdata=df_validate,type="class")
+#run prediction using radial SVM model
+pred_SVM <- predict(radial_SVM, newdata=df_validate,type="class")
 #create confusion matrix
-CM_SVM = confusionMatrix(data=as.factor(pred_SVM), as.factor(df_validate$Condition))
-CM_SVM
+CM_SVM_radial = confusionMatrix(data=as.factor(pred_SVM), as.factor(df_validate$Condition))
+print('-----Radial SVM-----')
+CM_SVM_radial
 
+#run prediction using linear SVM model
+pred_SVM_linear <- predict(linear_SVM, newdata=df_validate,type="class")
+#create confusion matrix
+CM_SVM_linear = confusionMatrix(data=as.factor(pred_SVM_linear), as.factor(df_validate$Condition))
+print('-----Linear SVM-----')
+CM_SVM_linear
+
+#run prediction using polynomial SVM model
+pred_SVM_polynomial <- predict(polynomial_SVM, newdata=df_validate,type="class")
+#create confusion matrix
+CM_SVM_polynomial = confusionMatrix(data=as.factor(pred_SVM_polynomial), as.factor(df_validate$Condition))
+print('-----Polynomial SVM-----')
+CM_SVM_polynomial
+
+#run prediction using sigmoid SVM model
+pred_SVM_sigmoid <- predict(sigmoid_SVM, newdata=df_validate,type="class")
+#create confusion matrix
+CM_SVM_sigmoid = confusionMatrix(data=as.factor(pred_SVM_sigmoid), as.factor(df_validate$Condition))
+print('-----Sigmoid SVM-----')
+CM_SVM_sigmoid
 ```
 
 ## Step 8: Is this enough?
@@ -299,6 +333,8 @@ CM_SVM
 is this enough to compare the classifiers? What if you use a k-fold cross-validation approach? Will you get similar results with different random splits?
 
 ```{r}
+#ensure reproducibility
+set.seed(122)
 #create folds for cross validation
 folds <- fold(data=df, k=7)$.folds
 
@@ -323,12 +359,13 @@ for(k in 1:7){
   pred_class <- ifelse(pred_lr < 0.5, cond_levels[1], cond_levels[2])
   pred_class <- factor(pred_class, levels = cond_levels)
   CM <- confusionMatrix(data=as.factor(pred_class), ref_factor)
-  
+  fold_spec <- CM$byClass[["Specificity"]]
+  fold_sens <- CM$byClass[["Sensitivity"]]
+  fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
   #store the confusion matrix and metrics
   CMs[[k]] <- CM
-  out <- rbind(out, CM$overall)
+  out <- rbind(out, fold_metrics)
 }
-
 
 cv_results <- as.data.frame(out)
 lr_summary_stats <- colMeans(cv_results)
@@ -336,6 +373,8 @@ print(lr_summary_stats)
 ```
 
 ```{r}
+#ensure reproducibility
+set.seed(122)
 #create folds for cross validation
 folds <- fold(data=df, k=7)$.folds
 
@@ -359,20 +398,25 @@ for(k in 1:7){
   pred <- predict(model_LDA, newdata=df_test)
   #create confusion matrix
   CM = confusionMatrix(data=as.factor(pred$class), as.factor(df_test$Condition))
-  
+  fold_spec <- CM$byClass[["Specificity"]]
+  fold_sens <- CM$byClass[["Sensitivity"]]
+  fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
   #store the confusion matrix and metrics
   CMs[[k]] <- CM
-  out <- rbind(out, CM$overall)
+  out <- rbind(out, fold_metrics)
 }
 
 
 cv_results <- as.data.frame(out)
+cv_results
 lda_summary_stats <- colMeans(cv_results)
 print(lda_summary_stats)
 
 ```
 
 ```{r}
+#ensure reproducibility
+set.seed(122)
 #create folds for cross validation
 folds <- fold(data=df, k=7)$.folds
 
@@ -387,7 +431,7 @@ for(k in 1:7){
   df_train <- df[folds!=k,]
   
   #train the model
-  model_SVM <- svm(Condition~., data=df_train)
+  model_SVM <- svm(Condition~., data=df_train, kernel = 'radial')
   
   #store model in the list
   models[[k]] <- model_SVM
@@ -396,16 +440,157 @@ for(k in 1:7){
   pred <- predict(model_SVM, newdata=df_test)
   #create confusion matrix
   CM = confusionMatrix(data=as.factor(pred), as.factor(df_test$Condition))
-  
+  fold_spec <- CM$byClass[["Specificity"]]
+  fold_sens <- CM$byClass[["Sensitivity"]]
+  fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
   #store the confusion matrix and metrics
   CMs[[k]] <- CM
-  out <- rbind(out, CM$overall)
+  out <- rbind(out, fold_metrics)
 }
 
 cv_results <- as.data.frame(out)
-svm_summary_stats <- colMeans(cv_results)
-print(svm_summary_stats)
+svm_radial_summary_stats <- colMeans(cv_results)
+print(svm_radial_summary_stats)
 
+```
+
+```{r}
+#ensure reproducibility
+set.seed(122)
+#create folds for cross validation
+folds <- fold(data=df, k=7)$.folds
+
+#create empty lists to store output
+CMs <- list()
+models <- list()
+out <- NULL
+
+for(k in 1:7){
+  #split training and testing data based on fold ID
+  df_test <- df[folds==k,]
+  df_train <- df[folds!=k,]
+  
+  #train the model
+  model_SVM <- svm(Condition~., data=df_train, kernel = 'linear')
+  
+  #store model in the list
+  models[[k]] <- model_SVM
+  
+  #predict using LDA
+  pred <- predict(model_SVM, newdata=df_test)
+  #create confusion matrix
+  CM = confusionMatrix(data=as.factor(pred), as.factor(df_test$Condition))
+  fold_spec <- CM$byClass[["Specificity"]]
+  fold_sens <- CM$byClass[["Sensitivity"]]
+  fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
+  #store the confusion matrix and metrics
+  CMs[[k]] <- CM
+  out <- rbind(out, fold_metrics)
+}
+
+cv_results <- as.data.frame(out)
+svm_linear_summary_stats <- colMeans(cv_results)
+print(svm_linear_summary_stats)
+
+```
+
+```{r}
+#ensure reproducibility
+set.seed(122)
+#create folds for cross validation
+folds <- fold(data=df, k=7)$.folds
+
+#create empty lists to store output
+CMs <- list()
+models <- list()
+out <- NULL
+
+for(k in 1:7){
+  #split training and testing data based on fold ID
+  df_test <- df[folds==k,]
+  df_train <- df[folds!=k,]
+  
+  #train the model
+  model_SVM <- svm(Condition~., data=df_train, kernel = 'polynomial')
+  
+  #store model in the list
+  models[[k]] <- model_SVM
+  
+  #predict using LDA
+  pred <- predict(model_SVM, newdata=df_test)
+  #create confusion matrix
+  CM = confusionMatrix(data=as.factor(pred), as.factor(df_test$Condition))
+  fold_spec <- CM$byClass[["Specificity"]]
+  fold_sens <- CM$byClass[["Sensitivity"]]
+  fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
+  #store the confusion matrix and metrics
+  CMs[[k]] <- CM
+  out <- rbind(out, fold_metrics)
+}
+
+cv_results <- as.data.frame(out)
+svm_polynomial_summary_stats <- colMeans(cv_results)
+print(svm_polynomial_summary_stats)
+
+```
+
+```{r}
+#ensure reproducibility
+set.seed(122)
+#create folds for cross validation
+folds <- fold(data=df, k=7)$.folds
+
+#create empty lists to store output
+CMs <- list()
+models <- list()
+out <- NULL
+
+for(k in 1:7){
+  #split training and testing data based on fold ID
+  df_test <- df[folds==k,]
+  df_train <- df[folds!=k,]
+  
+  #train the model
+  model_SVM <- svm(Condition~., data=df_train, kernel = 'sigmoid')
+  
+  #store model in the list
+  models[[k]] <- model_SVM
+  
+  #predict using LDA
+  pred <- predict(model_SVM, newdata=df_test)
+  #create confusion matrix
+  CM = confusionMatrix(data=as.factor(pred), as.factor(df_test$Condition))
+  fold_spec <- CM$byClass[["Specificity"]]
+  fold_sens <- CM$byClass[["Sensitivity"]]
+  fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
+  #store the confusion matrix and metrics
+  CMs[[k]] <- CM
+  out <- rbind(out, fold_metrics)
+}
+
+cv_results <- as.data.frame(out)
+svm_sigmoid_summary_stats <- colMeans(cv_results)
+print(svm_sigmoid_summary_stats)
+
+```
+
+```{r}
+# Bind the vectors as rows in a matrix
+model_comparison <- rbind(
+  logistic_regression = lr_summary_stats,-
+  LDA = lda_summary_stats,
+  SVM_radial = svm_radial_summary_stats,
+  SVM_linear = svm_linear_summary_stats,
+  SVM_polynomial = svm_polynomial_summary_stats,
+  SVM_sigmoid = svm_sigmoid_summary_stats
+)
+
+# Convert the matrix to a dataframe
+model_comparison <- as.data.frame(model_comparison)
+
+col_order <- c("Accuracy", "Specificity", "Sensitivity",  "Kappa")
+
+print(model_comparison[, col_order])
 ```
 
 ## Interpret Biologically Important Markers
@@ -425,7 +610,7 @@ print(top_km_markers)
 
 ```{r}
 #calculate the weight vector by multiplying coefficients by the support vectors
-w <- t(model_SVM$coefs) %*% model_SVM$SV
+w <- t(linear_SVM$coefs) %*% linear_SVM$SV
 
 #find the genes with the highest absolute weights
 svm_weights <- abs(as.vector(w))
