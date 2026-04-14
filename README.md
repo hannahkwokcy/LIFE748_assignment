@@ -2,6 +2,24 @@
 This repository contains the intermediate and final outputs of the LIFE748 assignment 2 for genome assembly and annotation, machine learning and structural bioinformatics on E.coli sequencing data. 
 
 # Description
-In the part 1 directory, the output of genome assembly pipelines are stored in the respective "flye" and "spades" folder with the final FASTA files copied into the "assemblies" folder for easy access. The "references" folder contains the E. coli reference genome needed for quast analysis with results stored in the "quast" folder. Similarly, the genome annotation pipeline outputs for each Flye and SPAdes assembly are stored in the "bakta" and "prokka" folders. The resulting .faa, .fna and .tsv file of the 4 outputs are copied into the "annotations" folder for easier access. The part1_ graphs R file contains the codes for summary graph production while the prokka_bakta_comparison R file analyses the outputs of the genome assembly pipelines with results stored in  annotation_summary.csv. All codes used to run the tools are stored in the .txt file.
-In the part 2 directory, codes used to perform unsupervised and supervised machine learning are stored in Assessment2_ML_2.qmd. The extracted genes with significant fold changes are stored in significant_genes_with_FC.txt. 
-In the part 3 directory, using the EcoCyc E. coli database tool, the extracted genes were paired with the corresponding gene names and GO terms in New-SmartTable---2026-03-17T13_46_15--8.txt for downstream analysis. The sequence_extraction.py is used to extract the sequences from all bakta and prokka assemblies in part 1 and the results are stored in the Comparative_DEG_Proteins FASTA file. These sequences are used for the AlphaFold2 prediction and all results are stored in the folders named according to the gene names. The Part3_pymol_code.txt contains the commands used in pymol to generate the desired structures and images. The relevant pymol files are also stored in the respective folders.
+### `part1` Directory
+* `flye` and `spades`: Contain the outputs of the respective genome assembly pipelines.
+* `assemblies`: Contains copies of the final FASTA files for easy access.
+* `references`: Contains the E. coli reference genome required for Quast analysis.
+* `quast`: Contains the results of the Quast analysis.
+* `bakta` and `prokka` : Contain the genome annotation pipeline outputs for each Flye and SPAdes assembly.
+* `annotations` : Contains copies of the resulting `.faa`, `.fna`, and `.tsv` files from the four annotation outputs for easier access.
+* part1_graphs.r: Contains the code used for generating summary graphs.
+* prokka_bakta_comparison.r: Analyzes the outputs of the genome assembly pipelines and stores the results in `annotation_summary.csv`.
+* part1_code.txt: Contains all the commands and codes used to run the pipeline tools.
+
+### `part2` Directory
+* Assessment2_ML_2.qmd: Contains the code used to perform both unsupervised and supervised machine learning.
+* significant_genes_with_FC.txt: Contains the extracted genes that have significant fold changes.
+
+### `part3` Directory
+* New-SmartTable---2026-03-17T13_46_15--8.txt: Contains the extracted genes paired with their corresponding gene names and GO terms (generated using the EcoCyc E. coli database) for downstream analysis.
+* sequence_extraction.py: Script used to extract sequences from all Bakta and Prokka assemblies generated in Part 1.
+* Comparative_DEG_Proteins.fasta: Contains the results of the sequence extraction.
+* `{gene_name}` : Contain all AlphaFold2 prediction results based on the extracted sequences, along with their relevant PyMOL files. 
+* Part3_pymol_code.txt: Contains the specific commands used in PyMOL to generate the desired 3D structures and images.
