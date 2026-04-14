@@ -22,11 +22,12 @@ library(tidyverse)
 **Retrieve results and combine into a new csv file**
 
 ```{r}
+setwd('//wsl.localhost/Ubuntu/home/hannah/LIFE748asm/part1/annotation/annotations')
 #create an empty list to store results
 all_results <- list()
 
 #run the following loop for both assembly types 
-samples <- list('flye', 'SPAdes')
+samples <- list('flye', 'spades')
 for (s in samples) {
   
   #create paths for bakta and prokka tsv files according to current assembly type
