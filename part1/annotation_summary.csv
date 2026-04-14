@@ -1,3 +1,0 @@
-sample,genome_size,gc_content,prokka_CDS,bakta_CDS,prokka_tRNA,bakta_tRNA,prokka_rRNA,bakta_rRNA,prokka_func,prokka_hypo,bakta_func,bakta_hypo,prokka_func_pct,bakta_func_pct
-flye,5481946,0.5065947384377737,5157,5150,92,90,22,22,3906,1251,4836,314,0.7574171029668412,0.9390291262135922
-spades,5460078,0.5064228020185793,5115,5106,92,92,22,22,3896,1219,4804,302,0.7616813294232649,0.9408538973756365
