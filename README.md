@@ -1,16 +1,17 @@
 # LIFE748_assignment
-This repository contains the intermediate and final outputs of the LIFE748 assignment 2 for genome assembly and annotation, machine learning and structural bioinformatics on E.coli sequencing data. 
+This repository contains the intermediate and final outputs of the LIFE748 assignment 2 for genome assembly and annotation, machine learning and structural bioinformatics on E. Coli sequencing data. 
 
 # Description
 ### `part1` Directory
-* `flye` and `spades`: Contain the outputs of the respective genome assembly pipelines.
-* `assemblies`: Contains copies of the final FASTA files for easy access.
-* `references`: Contains the E. coli reference genome required for Quast analysis.
-* `quast`: Contains the results of the Quast analysis.
-* `bakta` and `prokka` : Contain the genome annotation pipeline outputs for each Flye and SPAdes assembly.
-* `annotations` : Contains copies of the resulting `.faa`, `.fna`, and `.tsv` files from the four annotation outputs for easier access.
-* part1_graphs.r: Contains the code used for generating summary graphs.
-* prokka_bakta_comparison.r: Analyzes the outputs of the genome assembly pipelines and stores the results in `annotation_summary.csv`.
+* `annotation`: Contains all the files needed for genome annotation.
+  * `bakta` and `prokka` : Contain the genome annotation pipeline outputs for each Flye and SPAdes assembly.
+  * `annotations` : Contains copies of the resulting `.faa`, `.fna`, and `.tsv` files from the four annotation outputs for easier access.
+* * `assembly`: Contains all the files needed for genome assembly.
+  * `flye` and `spades`: Contain the outputs of the respective genome assembly pipelines.
+  * `assemblies`: Contains copies of the final FASTA files for easy access.
+  * `references`: Contains the E. Coli reference genome required for Quast analysis.
+  * `quast`: Contains the results of the Quast analysis.
+* part1_graphs.r: Contains the R code used for generating summary graphs.
 * part1_code.txt: Contains all the commands and codes used to run the pipeline tools.
 
 ### `part2` Directory
