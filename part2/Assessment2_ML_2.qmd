@@ -577,7 +577,7 @@ print(svm_sigmoid_summary_stats)
 ```{r}
 # Bind the vectors as rows in a matrix
 model_comparison <- rbind(
-  logistic_regression = lr_summary_stats,-
+  logistic_regression = lr_summary_stats,
   LDA = lda_summary_stats,
   SVM_radial = svm_radial_summary_stats,
   SVM_linear = svm_linear_summary_stats,
@@ -616,20 +616,16 @@ w <- t(linear_SVM$coefs) %*% linear_SVM$SV
 svm_weights <- abs(as.vector(w))
 #create a list of gene names
 names(svm_weights) <- colnames(df_train)[-ncol(df_train)] 
-#match the svm weights to each gene and extract the top 10 genes with the highest weights
-top_svm_markers <- sort(svm_weights, decreasing = TRUE)[1:10]
-print(top_svm_markers)
+#match the svm weights to each gene and extract the top gene with the highest weights
+top_svm_marker <- sort(svm_weights, decreasing = TRUE)[1]
+print(top_svm_marker)
 
 #extract the scaling coefficients from the LDA model
 lda_importance <- abs(model_LDA$scaling[,1])
 
 #find top 10 genes that contribute most to the LDA linear discriminant
-top_lda_markers <- sort(lda_importance, decreasing = TRUE)[1:10]
-print(top_lda_markers)
-
-#find common genes for the LDA and SVM method
-supervised_markers <- intersect(names(top_svm_markers), names(top_lda_markers))
-print(supervised_markers)
+top_lda_marker <- sort(lda_importance, decreasing = TRUE)[1]
+print(top_lda_marker)
 ```
 
 ## Data preparation for part 3
