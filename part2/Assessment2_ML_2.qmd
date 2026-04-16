@@ -13,6 +13,10 @@ In this tutorial, we will analyze a simulated RNA-seq dataset. Our goal is to id
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
+## Generative AI declaration
+
+Gemini 3 Pro was used to assist the code writing of the K-means cluster plotting, details can be found in the report.
+
 ## Step 0: Load the required libraries
 
 ```{r warning=FALSE, message=FALSE }
@@ -90,6 +94,7 @@ EnhancedVolcano(res,
   lab = rownames(res),
   x = "log2FoldChange",
   y = "padj",
+  #cutoff values for statistically significant genes
   pCutoff = 0.05,
   FCcutoff = 1,
   ylim = c(0, 8),
@@ -121,11 +126,14 @@ Let's see if the samples naturally group by their condition without explicitly t
 ## K-means
 
 ```{r}
+#ensure reproducibility
+set.seed(123)
 #run elbow test
 k.max <- 10
-set.seed(123)
+#calculate total within-cluster sum of squares
 wss <- sapply(1:k.max, 
               function(k){kmeans(normalized_counts_sig[,1:2], k, nstart=5,iter.max = 15 )$tot.withinss})
+#create the elbow plot
 plot(1:k.max, wss,
      type="b", pch = 19, frame = FALSE, 
      xlab="Number of clusters K",
@@ -264,7 +272,7 @@ Train SVM (Support Vector Machine)
 ```{r}
 #enuure reproducibility
 set.seed(122)
-#train the SVM models
+#train the SVM models with different types of kernels
 radial_SVM <- svm(Condition~., data=df_train, kernel = 'radial')
 
 linear_SVM <- svm(Condition~., data=df_train, kernel='linear')
@@ -280,11 +288,15 @@ sigmoid_SVM <- svm(Condition~., data=df_train, kernel='sigmoid')
 Finally, we use confusion matrices to evaluate and compare how well LDA and SVM performed on the unseen test dataset.
 
 ```{r}
+#ensure variables are factors to avoid errors
 cond_levels <- levels(as.factor(df_validate$Condition))
 ref_factor  <- factor(df_validate$Condition, levels = cond_levels)
+#run prediction using logistic regression model
 pred_lr <- predict(model_lr, newdata=df_validate, type = 'response')
+#save the prediction into the pred_class factor variable
 pred_class <- ifelse(pred_lr < 0.5, cond_levels[1], cond_levels[2])
 pred_class <- factor(pred_class, levels = cond_levels)
+#create confusion matrix
 CM_lr <- confusionMatrix(data=as.factor(pred_class), ref_factor)
 CM_lr
 ```
@@ -356,9 +368,12 @@ for(k in 1:7){
   
   #predict using logistic regression
   pred_lr <- predict(model_lr, newdata=df_validate, type = 'response')
+  #store prediction into new variable
   pred_class <- ifelse(pred_lr < 0.5, cond_levels[1], cond_levels[2])
   pred_class <- factor(pred_class, levels = cond_levels)
+  #create confusion matrix
   CM <- confusionMatrix(data=as.factor(pred_class), ref_factor)
+  #save sensitivity and specificity into final result variable
   fold_spec <- CM$byClass[["Specificity"]]
   fold_sens <- CM$byClass[["Sensitivity"]]
   fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
@@ -367,6 +382,7 @@ for(k in 1:7){
   out <- rbind(out, fold_metrics)
 }
 
+#ensure output is in data frame format for summary statistics
 cv_results <- as.data.frame(out)
 lr_summary_stats <- colMeans(cv_results)
 print(lr_summary_stats)
@@ -398,6 +414,7 @@ for(k in 1:7){
   pred <- predict(model_LDA, newdata=df_test)
   #create confusion matrix
   CM = confusionMatrix(data=as.factor(pred$class), as.factor(df_test$Condition))
+  #save sensitivity and specificity into final result variable
   fold_spec <- CM$byClass[["Specificity"]]
   fold_sens <- CM$byClass[["Sensitivity"]]
   fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
@@ -406,7 +423,7 @@ for(k in 1:7){
   out <- rbind(out, fold_metrics)
 }
 
-
+#ensure output is in data frame format for summary statistics
 cv_results <- as.data.frame(out)
 cv_results
 lda_summary_stats <- colMeans(cv_results)
@@ -440,6 +457,7 @@ for(k in 1:7){
   pred <- predict(model_SVM, newdata=df_test)
   #create confusion matrix
   CM = confusionMatrix(data=as.factor(pred), as.factor(df_test$Condition))
+  #save sensitivity and specificity into final result variable
   fold_spec <- CM$byClass[["Specificity"]]
   fold_sens <- CM$byClass[["Sensitivity"]]
   fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
@@ -448,10 +466,10 @@ for(k in 1:7){
   out <- rbind(out, fold_metrics)
 }
 
+#ensure output is in data frame format for summary statistics
 cv_results <- as.data.frame(out)
 svm_radial_summary_stats <- colMeans(cv_results)
 print(svm_radial_summary_stats)
-
 ```
 
 ```{r}
@@ -480,6 +498,7 @@ for(k in 1:7){
   pred <- predict(model_SVM, newdata=df_test)
   #create confusion matrix
   CM = confusionMatrix(data=as.factor(pred), as.factor(df_test$Condition))
+  #save sensitivity and specificity into final result variable
   fold_spec <- CM$byClass[["Specificity"]]
   fold_sens <- CM$byClass[["Sensitivity"]]
   fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
@@ -488,10 +507,10 @@ for(k in 1:7){
   out <- rbind(out, fold_metrics)
 }
 
+#ensure output is in data frame format for summary statistics
 cv_results <- as.data.frame(out)
 svm_linear_summary_stats <- colMeans(cv_results)
 print(svm_linear_summary_stats)
-
 ```
 
 ```{r}
@@ -520,6 +539,7 @@ for(k in 1:7){
   pred <- predict(model_SVM, newdata=df_test)
   #create confusion matrix
   CM = confusionMatrix(data=as.factor(pred), as.factor(df_test$Condition))
+  #save sensitivity and specificity into final result variable
   fold_spec <- CM$byClass[["Specificity"]]
   fold_sens <- CM$byClass[["Sensitivity"]]
   fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
@@ -528,10 +548,10 @@ for(k in 1:7){
   out <- rbind(out, fold_metrics)
 }
 
+#ensure output is in data frame format for summary statistics
 cv_results <- as.data.frame(out)
 svm_polynomial_summary_stats <- colMeans(cv_results)
 print(svm_polynomial_summary_stats)
-
 ```
 
 ```{r}
@@ -560,6 +580,7 @@ for(k in 1:7){
   pred <- predict(model_SVM, newdata=df_test)
   #create confusion matrix
   CM = confusionMatrix(data=as.factor(pred), as.factor(df_test$Condition))
+  #save sensitivity and specificity into final result variable
   fold_spec <- CM$byClass[["Specificity"]]
   fold_sens <- CM$byClass[["Sensitivity"]]
   fold_metrics <- c(CM$overall, Sensitivity = fold_sens, Specificity = fold_spec)
@@ -568,14 +589,14 @@ for(k in 1:7){
   out <- rbind(out, fold_metrics)
 }
 
+#ensure output is in data frame format for summary statistics
 cv_results <- as.data.frame(out)
 svm_sigmoid_summary_stats <- colMeans(cv_results)
 print(svm_sigmoid_summary_stats)
-
 ```
 
 ```{r}
-# Bind the vectors as rows in a matrix
+#bind the vectors of each model's summary as rows in a matrix
 model_comparison <- rbind(
   logistic_regression = lr_summary_stats,
   LDA = lda_summary_stats,
@@ -585,11 +606,12 @@ model_comparison <- rbind(
   SVM_sigmoid = svm_sigmoid_summary_stats
 )
 
-# Convert the matrix to a dataframe
+#convert the matrix to a dataframe
 model_comparison <- as.data.frame(model_comparison)
-
+#ensure reasonable column order
 col_order <- c("Accuracy", "Specificity", "Sensitivity",  "Kappa")
 
+#output all results in a neat table
 print(model_comparison[, col_order])
 ```
 
